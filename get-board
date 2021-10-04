@@ -1,4 +1,5 @@
 #!/bin/sh
+set -euf
 
 ##
 # Demo Trello API to get a board by id
