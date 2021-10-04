@@ -1,15 +1,15 @@
 #!/bin/sh
 
 ##
-# Demo Trello API to get one board
+# Demo Trello API to get a board by id
 #
 # Syntax:
 #
-#     trello-api-get-board-id <board id>
+#     get-board <board_id>
 #
 # Example:
 #
-#     trello-api-get-board-id 979530daf10c65144e70e49871c05ac5
+#     get-board 979530daf10c65144e70e49871c05ac5
 #
 # This script needs environmental variables:
 #
@@ -18,7 +18,7 @@
 #   * TOKEN is your authorization token a.k.a. private personal access token
 ##
 
-base="https://api.trello.com/1"
-
 board_id="$1"
-curl -sSL "$base/boards/$board_id/cards?key=$KEY&token=$TOKEN"
+
+curl -sSL "https://api.trello.com/1/boards/$board_id/cards?key=$KEY&token=$TOKEN" |
+jq .
