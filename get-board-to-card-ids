@@ -6,11 +6,11 @@ set -euf
 #
 # Syntax:
 #
-#     get-board-to-card-id-list <board_id>
+#     get-board-to-card-ids <board_id>
 #
 # Example:
 #
-#     get-board-to-card-id-list 979530daf10c65144e70e49871c05ac5
+#     get-board-to-card-ids 979530daf10c65144e70e49871c05ac5
 #
 # This script needs environmental variables:
 #

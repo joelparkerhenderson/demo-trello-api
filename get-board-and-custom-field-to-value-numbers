@@ -1,0 +1,26 @@
+#!/bin/sh
+set -euf
+
+##
+# Demo Trello API to get a board's cards' custom fields
+#
+# Syntax:
+#
+#     get-board-and-custom-field-to-value-numbers <board_id> <custom_field_id>
+#
+# Example:
+#
+#     get-board-and-custom-field-to-value-numbers 979530daf10c65144e70e49871c05ac5 37363d1d1bdf7db01641d34d2090e0aa
+#
+# This script needs environmental variables:
+#
+#   * KEY is your Trello API key a.k.a. public application developer key
+#
+#   * TOKEN is your authorization token a.k.a. private personal access token
+##
+
+board_id="$1"
+custom_field_id="$2"
+
+curl -sSL "https://api.trello.com/1/boards/$board_id/?key=$KEY&token=$TOKEN&fields=name&cards=visible&card_fields=name&customFields=true&card_customFieldItems=true" |
+jq -r --arg custom_field_id "$custom_field_id" '.cards[].customFieldItems[] | select(.idCustomField == $custom_field_id) | .value.number'
