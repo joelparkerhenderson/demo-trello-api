@@ -2,16 +2,16 @@
 set -euf
 
 ##
-# Demo Trello API to get a board by id
+# Demo Trello API to get a board's cards
 #
 # Syntax:
 #
-#     get-board <board_id>
+#     get-board-with-cards <board_id>
 #
 # Example:
 #
-#     get-board 5b8f1655ec6a1e2c90433ca9
-#
+#     get-board-with-cards 5b8f1655ec6a1e2c90433ca9
+# 
 # This script needs environmental variables:
 #
 #   * KEY is your Trello API key a.k.a. public application developer key
@@ -21,5 +21,5 @@ set -euf
 
 board_id="$1"
 
-curl -sSL "https://api.trello.com/1/boards/$board_id/?key=$KEY&token=$TOKEN" |
-jq .
+curl -sSL "https://api.trello.com/1/boards/$board_id/cards?key=$KEY&token=$TOKEN" | 
+jq -r ".[].id"

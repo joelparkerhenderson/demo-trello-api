@@ -2,15 +2,15 @@
 set -euf
 
 ##
-# Demo Trello API to get a board's cards
+# Demo Trello API to get a board's cards' id items
 #
 # Syntax:
 #
-#     get-board-to-card-ids <board_id>
+#     get-board-to-card-id-list <board_id>
 #
 # Example:
 #
-#     get-board-to-card-ids 979530daf10c65144e70e49871c05ac5
+#     get-board-to-card-id-list 5b8f1655ec6a1e2c90433ca9
 #
 # This script needs environmental variables:
 #

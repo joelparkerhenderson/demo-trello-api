@@ -6,11 +6,11 @@ set -euf
 #
 # Syntax:
 #
-#     get-board-and-custom-field-to-value-numbers <board_id> <custom_field_id>
+#     get-board-and-custom-field-to-value-number-list <board_id> <custom_field_id>
 #
 # Example:
 #
-#     get-board-and-custom-field-to-value-numbers 979530daf10c65144e70e49871c05ac5 37363d1d1bdf7db01641d34d2090e0aa
+#     get-board-and-custom-field-to-value-number-list 5b8f1655ec6a1e2c90433ca9 37363d1d1bdf7db01641d34d2090e0aa
 #
 # This script needs environmental variables:
 #

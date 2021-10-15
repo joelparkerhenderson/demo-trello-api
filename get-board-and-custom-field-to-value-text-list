@@ -6,11 +6,11 @@ set -euf
 #
 # Syntax:
 #
-#     get-board-to-custom-field-items <board_id>
+#     get-board-and-custom-field-to-value-text-list <board_id> <custom_field_id>
 #
 # Example:
 #
-#     get-board-to-card-custom-fields 979530daf10c65144e70e49871c05ac5
+#     get-board-and-custom-field-to-value-text-list 5b8f1655ec6a1e2c90433ca9 37363d1d1bdf7db01641d34d2090e0aa
 #
 # This script needs environmental variables:
 #
@@ -20,6 +20,7 @@ set -euf
 ##
 
 board_id="$1"
+custom_field_id="$2"
 
 curl -sSL "https://api.trello.com/1/boards/$board_id/?key=$KEY&token=$TOKEN&fields=name&cards=visible&card_fields=name&customFields=true&card_customFieldItems=true" |
-jq .
+jq -r --arg custom_field_id "$custom_field_id" '.cards[].customFieldItems[] | select(.idCustomField == $custom_field_id) | .value.text'
